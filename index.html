@@ -3,90 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fort Worth Texas Roleplay Staff Hub</title>
+  <title>Staff Hub</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
       background: #f4f5f7;
+      color: #222;
     }
     .navbar {
-      display: flex;
+      position: sticky;
+      top: 0;
       background: #fff;
       box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-      padding: 0 32px;
-      align-items: center;
-      height: 56px;
+      z-index: 100;
+      padding: 0 16px;
     }
     .nav {
       display: flex;
-      gap: 32px;
+      flex-wrap: wrap;
+      gap: 24px;
       margin: 0;
       padding: 0;
       list-style: none;
-    }
-    .nav li {
-      margin: 0;
+      height: 56px;
+      align-items: center;
     }
     .nav-link {
       display: inline-block;
       padding: 8px 0;
       font-weight: 600;
-      color: #222;
+      color: #5b21b6;
       text-decoration: none;
-      border-radius: 6px 6px 0 0;
       border-bottom: 2px solid transparent;
       transition: color 0.2s, border-bottom 0.2s;
     }
-    .nav-link.active {
-      color: #5b21b6;
+    .nav-link:hover, .nav-link.active {
+      color: #3b0ca7;
       border-bottom: 2px solid #5b21b6;
       background: #f9f9fb;
     }
     .container {
       max-width: 900px;
-      margin: 48px auto 0 auto;
+      margin: 40px auto 0 auto;
       padding: 0 16px;
     }
-    .card {
+    section {
       background: #fff;
       border-radius: 16px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.07);
       padding: 32px 24px;
-      margin-top: 16px;
+      margin-bottom: 32px;
     }
-    .card h1 {
+    section h2 {
       margin-top: 0;
-      font-size: 2rem;
+      color: #5b21b6;
+      font-size: 1.5rem;
       font-weight: 700;
     }
-    .card p {
-      font-size: 1.1rem;
-      color: #333;
-    }
-    @media (max-width: 600px) {
-      .navbar { padding: 0 8px; }
+    @media (max-width: 700px) {
       .container { padding: 0 4px; }
-      .card { padding: 20px 8px; }
-      .nav { gap: 12px; }
+      section { padding: 20px 8px; }
+      .nav { gap: 10px; }
+    }
+    html {
+      scroll-behavior: smooth;
     }
   </style>
+  <script>
+    // Highlight nav link on scroll
+    window.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 70;
+          if (pageYOffset >= sectionTop) {
+            current = section.getAttribute('id');
+          }
+        });
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <nav class="navbar">
     <ul class="nav">
-      <li><a href="#" class="nav-link active">Welcome</a></li>
-      <li><a href="#" class="nav-link">Staff Team</a></li>
-      <li><a href="#" class="nav-link">Chain of Command</a></li>
-      <li><a href="#" class="nav-link">Staff Regulation and Conduct</a></li>
-      <li><a href="#" class="nav-link">Resources</a></li>
+      <li><a href="#introduction" class="nav-link active">Introduction & Chain of Command</a></li>
+      <li><a href="#training" class="nav-link">Training, Rules</a></li>
+      <li><a href="#ticket" class="nav-link">Ticket Handling & Commands</a></li>
+      <li><a href="#punishments" class="nav-link">Punishments & Promotions</a></li>
+      <li><a href="#shift" class="nav-link">Shift Starting & Termination</a></li>
+      <li><a href="#resignation" class="nav-link">Resignation, Reinstatement & Reporting</a></li>
+      <li><a href="#quota" class="nav-link">Quota, Staff Liveries & 50/50 Regulations</a></li>
+      <li><a href="#avatars" class="nav-link">Avatars, ERM, Moderation</a></li>
+      <li><a href="#departments" class="nav-link">Departments, WL Items, Acts & Expectations</a></li>
     </ul>
   </nav>
   <div class="container">
-    <div class="card">
-      <h1>Welcome</h1>
-      <p>Welcome to the Fort Worth Texas Roleplay Staff Hub! Listed above you can find information ranging from the Chain of Command to guides you should follow to be the perfect moderator.</p>
-    </div>
+    <section id="introduction">
+      <h2>1. Introduction & Chain of Command</h2>
+      <p>Welcome to the staff hub! Here you’ll find an overview of our team structure and the chain of command. (Add your custom content here.)</p>
+    </section>
+    <section id="training">
+      <h2>2. Training, Rules</h2>
+      <p>Information about staff training and the rules all members must follow. (Add your custom content here.)</p>
+    </section>
+    <section id="ticket">
+      <h2>3. Ticket Handling, Off Duty Commands & Commands</h2>
+      <p>Guidelines for handling tickets, and a list of off-duty and in-game commands. (Add your custom content here.)</p>
+    </section>
+    <section id="punishments">
+      <h2>4. Punishments & Promotions</h2>
+      <p>Details on staff punishments, infractions, and the promotion process. (Add your custom content here.)</p>
+    </section>
+    <section id="shift">
+      <h2>5. Shift Starting & Termination</h2>
+      <p>How to properly start and end your staff shifts. (Add your custom content here.)</p>
+    </section>
+    <section id="resignation">
+      <h2>6. Resignation, Reinstatement & Reporting</h2>
+      <p>Procedures for resigning, returning to staff, and reporting issues. (Add your custom content here.)</p>
+    </section>
+    <section id="quota">
+      <h2>7. Quota, Staff Liveries, Proof & 50/50 Regulations</h2>
+      <p>Staff quotas, uniform/livery requirements, proof standards, and 50/50 regulations. (Add your custom content here.)</p>
+    </section>
+    <section id="avatars">
+      <h2>8. Avatars, ERM, Moderation</h2>
+      <p>Avatar guidelines, ERM (explain what this means for your group), and moderation tips. (Add your custom content here.)</p>
+    </section>
+    <section id="departments">
+      <h2>9. Departments, WL Items, Acts & Expectations</h2>
+      <p>Overview of departments, whitelisted items, staff acts, and expectations. (Add your custom content here.)</p>
+    </section>
   </div>
 </body>
 </html>
